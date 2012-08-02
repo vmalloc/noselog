@@ -1,0 +1,10 @@
+setup.py
+noselog/__init__.py
+noselog/__version__.py
+noselog/nose_plugin.py
+noselog.egg-info/PKG-INFO
+noselog.egg-info/SOURCES.txt
+noselog.egg-info/dependency_links.txt
+noselog.egg-info/entry_points.txt
+noselog.egg-info/namespace_packages.txt
+noselog.egg-info/top_level.txt

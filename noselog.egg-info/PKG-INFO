@@ -1,0 +1,11 @@
+Metadata-Version: 1.1
+Name: noselog
+Version: 0.0.1
+Summary: Nose plugin for controlling test logs output
+Home-page: UNKNOWN
+Author: Rotem Yaari
+Author-email: vmalloc@gmail.com
+License: BSD
+Description: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 2.6

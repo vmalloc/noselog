@@ -20,7 +20,7 @@ class NosePlugin(NosePluginBase):
         else:
             handler = logging.FileHandler(options.outputfile)
         handler.setLevel(self._get_levelno(options.level))
-        handler.setFormatter(logging.Formatter("%(asctime)s %(levelname)s -- %(msg)s"))
+        handler.setFormatter(logging.Formatter("%(asctime)s %(levelname)s -- %(message)s"))
         logging.getLogger().addHandler(handler)
     def _get_levelno(self, level):
         if isinstance(level, Number):

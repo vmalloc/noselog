@@ -10,6 +10,7 @@ class NosePlugin(NosePluginBase):
         super(NosePlugin, self).options(parser, env)
         parser.add_option("--noselog-file", dest="outputfiles", default=[], action="append",
                           help="Output files to log to. '-' means stderr. Can be specified multiple times.")
+        parser.add_option("--noselog-console-level", dest="console_level", default="DEBUG")
         parser.add_option("--noselog-level", dest="level", default="DEBUG")
 
     def configure(self, options, conf):
@@ -23,9 +24,10 @@ class NosePlugin(NosePluginBase):
         for output_file_name in set(outputfiles):
             if output_file_name == "-":
                 handler = logging.StreamHandler(sys.stderr)
+                handler.setLevel(self._get_levelno(options.console_level))
             else:
                 handler = logging.FileHandler(output_file_name)
-            handler.setLevel(self._get_levelno(options.level))
+                handler.setLevel(self._get_levelno(options.level))
             handler.setFormatter(logging.Formatter("%(asctime)s %(levelname)s -- %(message)s"))
             logging.getLogger().addHandler(handler)
     def _get_levelno(self, level):

@@ -16,6 +16,7 @@ And then, when running `nosetests`, append the `--with-noselog` flag:
 
 * You can specify the file to log to with the `--noselog-file` option (by default, this is `-`, which means log to **stderr**). This option can be specified multiple times to log to multiple locations (e.g. both stderr and a file)
 * You can specify the logging level with the `--noselog-level` option (by default, this is `DEBUG`)
+* Console logging level is controlled separately (`DEBUG` by default) via the `--noselog-console-level` flag.
 
 
 

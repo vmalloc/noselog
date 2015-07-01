@@ -6,6 +6,9 @@ from nose.plugins import Plugin as NosePluginBase
 
 _logger = logging.getLogger(__name__)
 
+DEFAULT_LOG_FORMAT = "%(asctime)s %(name)s %(levelname)s -- %(message)s"
+
+
 class NosePlugin(NosePluginBase):
     name = 'noselog'
     def options(self, parser, env=os.environ):
@@ -14,6 +17,7 @@ class NosePlugin(NosePluginBase):
                           help="Output files to log to. '-' means stderr. Can be specified multiple times.")
         parser.add_option("--noselog-console-level", dest="console_level", default="DEBUG")
         parser.add_option("--noselog-level", dest="level", default="DEBUG")
+        parser.add_option("--noselog-format", dest="log_format", default=DEFAULT_LOG_FORMAT, help="Specify a logging format string. Default is \"%s\"" % DEFAULT_LOG_FORMAT)
         parser.add_option("--noselog-logger", dest="additional_loggers", default=[], action="append", help="Specify additional logger names to include in captured logs")
         parser.add_option("--noselog-log-errors", dest="log_errors", default=False, action="store_true", help="Also log test errors")
         parser.add_option("--noselog-log-failures", dest="log_failures", default=False, action="store_true", help="Also log test failures (assertions etc.)")
@@ -43,7 +47,7 @@ class NosePlugin(NosePluginBase):
             else:
                 handler = logging.FileHandler(output_file_name)
                 handler.setLevel(noselog_level)
-            handler.setFormatter(logging.Formatter("%(asctime)s %(name)s %(levelname)s -- %(message)s"))
+            handler.setFormatter(logging.Formatter(options.log_format))
             for logger in loggers_to_fix:
                 logger.addHandler(handler)
 

@@ -18,6 +18,5 @@ And then, when running `nosetests`, append the `--with-noselog` flag:
 * You can specify the logging level with the `--noselog-level` option (by default, this is `DEBUG`)
 * Console logging level is controlled separately (`DEBUG` by default) via the `--noselog-console-level` flag.
 * Noselog can log test errors and failures (using `--noselog-log-errors` and `--noselog-log-failures`)
-
-
-
+* You can specify a custom log format with the `--noselog-format`
+  option. The default is "%(asctime)s %(name)s %(levelname)s -- %(message)s"

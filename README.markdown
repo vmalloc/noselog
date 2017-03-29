@@ -1,3 +1,6 @@
+# DEPRECATION NOTICE
+This package is no longer under active development. I myself have moved away from Nose into better testing tools, namely Pytest for unit testing and Slash for integration testing.
+
 # Noselog
 
 Noselog is a small [nose](http://nose.readthedocs.org/en/latest/) plugin that turns on logging for running tests. By default `nose` captures logs of running tests, but does not show them on the screen unless a failure occurrs. For debugging purposes, a user may want to see the logs as they run in certain situations
